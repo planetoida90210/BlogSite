@@ -4,12 +4,17 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const config = require('./config')
+const config = require('./config');
+const mongoose = require('mongoose');
+
+mongoose.connect(config.db, {useNewUrlParser: true});
+
 
 const indexRouter = require('./routes/index');
 const newsRouter = require('./routes/news');
 const quizRouter = require('./routes/quiz');
 const adminRouter = require('./routes/admin');
+
 
 
 const app = express();
